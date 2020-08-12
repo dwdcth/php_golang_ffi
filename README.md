@@ -105,6 +105,7 @@ function makeGoStr(FFI $ffi, string $str): FFI\CData
 ### 1 通过 C.char
 
 由于go不能返回slice string，那么换个思路，把数组拼接成字符串，然后返回C.char。这种方式最简单，而且在后面的跑分测试里发现，也是最有效率的。
+复杂的数据结构，可以序列化为string 然后返回C.char
 
 ### 2 通过slice 指针传参数
 
