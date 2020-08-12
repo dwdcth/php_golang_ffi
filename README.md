@@ -1,6 +1,6 @@
 [上一篇文章](https://github.com/dwdcth/phpjieba_ffi)中用PHP的FFI成功了调用了cjieba，但是速度实在是慢，4个函数循环调用20次，用了居然1分50多秒，而且C版本只比PHP快一点点，看来是cjieba本身慢了。
 
-这次发现了一个golang的分词库[gse](github.com/go-ego/gse)，试试导出为动态库，用FFI加载。
+这次发现了一个golang的分词库[gse](https://github.com/go-ego/gse)，试试导出为动态库，用FFI加载。
 
 # 碰到的问题
 
