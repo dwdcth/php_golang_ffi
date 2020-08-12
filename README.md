@@ -62,7 +62,7 @@ typedef unsigned long long GoUint64;
 
 # PHP FFI调用go
 
-# ## PHP如何初始化go类型变量
+## PHP如何初始化go类型变量
 
 由于go的string，slice导出后，都是一个结构体，不是一个简单类型，这里我们先看看string。
 
@@ -100,7 +100,7 @@ function makeGoStr(FFI $ffi, string $str): FFI\CData
 
 ## FFI的三种调用思路
 
-下面我说一下三种调用思路，建议第一种，这里就不贴代码了，完整的代码看github。
+下面我说一下三种调用思路，建议第一种，这里就不贴代码了，完整的代码看[github](https://github.com/dwdcth/php_golang_ffi)。
 
 ### 1 通过 C.char
 
@@ -118,7 +118,7 @@ function makeGoStr(FFI $ffi, string $str): FFI\CData
 
 # 跑分测试
 
-可以下载我github的代码，对于go需要开启go mod。
+可以下载我[github](https://github.com/dwdcth/php_golang_ffi)的代码，对于go需要开启go mod。
 
 先`make lib`，生成go的动态库，然后`make php_test` 和`make go_test` 查看对比。
 
