@@ -35,7 +35,7 @@ printf("CutPointer:%s\n", implode(" ", $words));
 $cutSum = 2000;
 
 $startCut = microtime(true);
-for ($i = 0; $i < 1000; $i++) {
+for ($i = 0; $i < $cutSum; $i++) {
     $result = $goseg->CutChar($text);
     $words = FFI::string($result);
 }
@@ -43,7 +43,7 @@ $endCut = microtime(true);
 printf("CutChar $cutSum 次用时：%f s\n", $endCut - $startCut);
 
 $startCut = microtime(true);
-for ($i = 0; $i < 1000; $i++) {
+for ($i = 0; $i < $cutSum; $i++) {
     $result = makeGoStrSlice($goseg, []);
     $goseg->CutSlice($text, FFI::addr($result));
     $words = fromGoSlice($goseg, $result, 'GoString', 'fromGoStr');
@@ -53,7 +53,7 @@ printf("CutSlice $cutSum 次用时：%f s\n", $endCut - $startCut);
 
 
 $startCut = microtime(true);
-for ($i = 0; $i < 1000; $i++) {
+for ($i = 0; $i < $cutSum; $i++) {
     $len = makeGoInt($goseg, 0);
     $cap = makeGoInt($goseg, 0);
     $pointer = $goseg->CutPointer($text, FFI::addr($len), FFI::addr($cap));
